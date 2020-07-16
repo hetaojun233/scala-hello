@@ -47,14 +47,15 @@ object charpter02 {
     //    1.to(10).reverse.foreach { i => Predef println i }
     //    1.to(10).reverse.foreach { i => println(i) }
     //    1.to(10).reverse foreach { println _ }
-    (1 to 10 reverse) foreach println
+    (1 to 10 reverse) foreach println  
+
   }
 
   /*
    * 2.5 
    * 编写一个过程countdown(n:Int)，打印从n到0的数字
    */
-  def countdown(n: Int) {
+  def countdown(n: Int) { //博主的方法，抄一下嘻嘻
     n match {
       case n if n >= 0 => {
         (0 to n reverse) foreach println
@@ -62,6 +63,10 @@ object charpter02 {
       case n if n < 0 => {
         n to 0 foreach println
       }
+    }
+  ******************  
+   for (i <- Range(n, -1, -1)) {     //我的方法
+      println(i)
     }
   }
 
@@ -72,7 +77,9 @@ object charpter02 {
    */
   def calculateCharsUnicodeProduct(s: String) = {
     var res: Long = 1
-    s foreach { res *= _.toLong }
+    s foreach { res *= _.toLong } //博主的方法
+    ***********
+    for (ch<-s){multi *=ch} //我的方法
     res
   }
 
